@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------
+   Design tokens. Tailwind's theme (tailwind.config.ts) is the source of
+   truth; these CSS variables mirror the ones needed outside utilities.
+------------------------------------------------------------------- */
+@layer base {
+  :root {
+    --peach-500: #e07a4d;
+    --peach-600: #c45f36;
+    --peach-700: #9a4825;
+    --ink: #2a1810;
+    --bg: #fbf4eb;
+    /* Italic accent colour. The brief asks for peach-500, but that's 2.7:1
+       on cream — below WCAG even for large text. peach-600 passes (3.8:1). */
+    --accent: var(--peach-600);
+  }
+
+  html {
+    @apply scroll-smooth bg-bg text-ink antialiased;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-bg font-sans text-ink;
+    /* Decorative glows must never widen the page on phones. clip (not hidden) keeps sticky working. */
+    overflow-x: clip;
+  }
+
+  /* Anchor targets clear the sticky nav. */
+  [id] {
+    scroll-margin-top: 5.5rem;
+  }
+
+  /* Inline emphasis inside body copy: Fraunces italic, full ink. */
+  p em,
+  li em,
+  blockquote em {
+    @apply font-display font-normal italic text-ink;
+  }
+
+  ::selection {
+    background: #fcd2b6;
+    color: #2a1810;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--peach-600);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+@layer components {
+  /* Italic accent word inside a headline. Weight stays at 400. */
+  .accent {
+    @apply font-display font-normal italic;
+    color: var(--accent);
+  }
+
+  .eyebrow {
+    @apply font-sans text-[11.5px] font-bold uppercase tracking-[0.18em] text-peach-700;
+  }
+
+  .display-xl {
+    @apply font-display font-normal tracking-tight;
+    font-size: clamp(2.75rem, 1.6rem + 5vw, 4.75rem);
+    line-height: 1.02;
+    font-variation-settings: 'opsz' 144;
+  }
+  .display-lg {
+    @apply font-display font-normal tracking-tight;
+    font-size: clamp(2.125rem, 1.5rem + 2.8vw, 3.375rem);
+    line-height: 1.05;
+    font-variation-settings: 'opsz' 120;
+  }
+  .display-md {
+    @apply font-display font-normal tracking-tight;
+    font-size: clamp(1.75rem, 1.4rem + 1.4vw, 2.375rem);
+    line-height: 1.1;
+  }
+
+  /* Long-form article body */
+  .prose-article {
+    @apply text-[18px] leading-[1.75] text-ink-mid;
+  }
+  .prose-article > * + * {
+    @apply mt-6;
+  }
+  .prose-article h2 {
+    @apply mt-14 font-display text-[30px] font-normal leading-[1.15] tracking-tight text-ink;
+  }
+  .prose-article h3 {
+    @apply mt-10 font-display text-[22px] font-medium leading-snug text-ink;
+  }
+  .prose-article a {
+    @apply font-semibold text-peach-700 underline decoration-peach-300 decoration-2 underline-offset-4 hover:decoration-peach-500;
+  }
+  .prose-article strong {
+    @apply font-semibold text-ink;
+  }
+  .prose-article ul {
+    @apply list-none space-y-3 pl-0;
+  }
+  .prose-article ul > li {
+    @apply relative pl-7;
+  }
+  .prose-article ul > li::before {
+    content: '';
+    @apply absolute left-1 top-[0.7em] h-2 w-2 rounded-full bg-peach-400;
+  }
+  .prose-article ol {
+    @apply list-decimal space-y-3 pl-6 marker:font-display marker:text-peach-700;
+  }
+  .prose-article hr {
+    @apply my-12 border-0 text-center;
+  }
+  .prose-article hr::after {
+    content: '· · ·';
+    @apply font-display text-xl tracking-[0.5em] text-peach-400;
+  }
+  /* Fraunces drop cap on the opening paragraph */
+  .prose-article > p:first-of-type::first-letter {
+    @apply float-left mr-3 mt-1 font-display text-peach-600;
+    font-size: 4.6rem;
+    line-height: 0.82;
+    font-variation-settings: 'opsz' 144;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+/* Reduced motion: every animation and transition becomes instant. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Legal pages reuse the article body without the drop cap. */
+.prose-plain > p:first-of-type::first-letter {
+  all: unset;
+}

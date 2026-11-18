@@ -1,0 +1,162 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=block" rel="stylesheet">
+<style>
+:root{--p50:#FFF8F2;--p100:#FFE9DA;--p200:#FCD2B6;--p300:#F8B48A;--p400:#F19568;--p500:#E07A4D;--p600:#C45F36;--p700:#9A4825;--blush:#F4C2B0;--rose:#E89B89;--cream:#FBF4EB;--sage:#A6C2A8;--saged:#6B8A6E;--ink:#2A1810;--mid:#5A3F33;--soft:#7A5A4D;--mute:#B69A8C}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:390px;height:844px;overflow:hidden;font-family:'Plus Jakarta Sans',sans-serif;color:var(--ink);background:var(--cream);-webkit-font-smoothing:antialiased}
+.screen{display:none;width:390px;height:844px;position:relative;flex-direction:column}
+.screen.on{display:flex}
+.status{height:54px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 30px 8px;font-weight:600;font-size:15px}
+.status .r{display:flex;gap:6px;align-items:center}
+.bat{width:24px;height:11px;border:1.5px solid var(--ink);border-radius:3px;position:relative}.bat:after{content:"";position:absolute;inset:1.5px;right:5px;background:var(--ink);border-radius:1px}
+.bars{display:flex;gap:2px;align-items:flex-end}.bars i{width:3px;background:var(--ink);border-radius:1px}
+.disp{font-family:'Fraunces',serif;font-weight:400;letter-spacing:-.02em}
+em{font-family:'Fraunces',serif;font-style:italic;color:var(--p600)}
+.pad{padding:0 24px}
+.eyebrow{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--p700)}
+.card{background:#fff;border-radius:22px;box-shadow:0 1px 2px rgba(42,24,16,.04),0 4px 14px rgba(193,95,54,.08)}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:10px 14px;border-radius:999px;background:#fff;border:1.5px solid var(--p100);font-size:13.5px;font-weight:600;color:var(--mid)}
+.chip.sel{background:var(--p100);border-color:var(--p300);color:var(--p700)}
+.btn{height:56px;border-radius:999px;background:linear-gradient(180deg,var(--p500),var(--p600));color:#fff;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(193,95,54,.28)}
+.tabbar{position:absolute;bottom:0;left:0;right:0;height:86px;background:rgba(255,255,255,.92);border-top:1px solid rgba(224,122,77,.12);display:flex;justify-content:space-around;padding-top:12px}
+.tab{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10.5px;font-weight:600;color:var(--mute)}
+.tab .d{width:24px;height:24px;border-radius:8px;background:var(--p100)}
+.tab.on{color:var(--p600)}.tab.on .d{background:linear-gradient(135deg,var(--p300),var(--p500))}
+.tab .cam{width:52px;height:52px;border-radius:50%;margin-top:-22px;background:linear-gradient(135deg,var(--p400),var(--p600));box-shadow:0 8px 18px rgba(193,95,54,.35);display:flex;align-items:center;justify-content:center}
+.home{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:3px;background:var(--ink)}
+.bar{height:8px;border-radius:999px;background:var(--p100);overflow:hidden}.bar i{display:block;height:100%;border-radius:999px}
+.avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--blush),var(--p400));color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Fraunces';font-size:18px}
+</style></head>
+<body>
+<!-- ONBOARDING -->
+<section class="screen" id="onboarding" style="background:linear-gradient(180deg,#FFF6F0,#FBF4EB 60%)">
+  <div class="status"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
+  <div class="pad" style="margin-top:14px;display:flex;gap:6px"><i style="flex:1;height:4px;border-radius:4px;background:var(--p500)"></i><i style="flex:1;height:4px;border-radius:4px;background:var(--p500)"></i><i style="flex:1;height:4px;border-radius:4px;background:var(--p200)"></i></div>
+  <div class="pad" style="margin-top:34px">
+    <div class="eyebrow">Step 2 of 3</div>
+    <h1 class="disp" style="font-size:36px;line-height:1.08;margin-top:12px">Let's meet your<br><em>little one.</em></h1>
+    <p style="color:var(--soft);font-size:15px;line-height:1.55;margin-top:12px">We'll shape every suggestion around her age and what matters most to you.</p>
+  </div>
+  <div class="pad" style="margin-top:28px">
+    <div style="font-size:12.5px;font-weight:700;color:var(--mid);margin-bottom:8px">Her name</div>
+    <div class="card" style="height:56px;display:flex;align-items:center;padding:0 18px;font-size:17px;font-weight:600;border:1.5px solid var(--p300);box-shadow:0 0 0 4px rgba(224,122,77,.12)">Mia<span style="width:2px;height:22px;background:var(--p500);margin-left:2px"></span></div>
+    <div style="font-size:12.5px;font-weight:700;color:var(--mid);margin:22px 0 10px">Her age</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="chip">6–12 mo</span><span class="chip sel">12–18 mo</span><span class="chip">18–24 mo</span><span class="chip">2–3 yrs</span></div>
+    <div style="font-size:12.5px;font-weight:700;color:var(--mid);margin:22px 0 10px">What matters most right now?</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="chip sel">🩸 Iron</span><span class="chip sel">🥦 Picky eating</span><span class="chip">🥜 Allergies</span><span class="chip">📈 Growth</span><span class="chip">💤 Sleep & food</span></div>
+  </div>
+  <div class="pad" style="position:absolute;bottom:52px;left:0;right:0"><div class="btn">Continue</div><p style="text-align:center;font-size:12.5px;color:var(--soft);margin-top:14px">You can change this anytime</p></div>
+  <div class="home"></div>
+</section>
+
+<!-- DASHBOARD -->
+<section class="screen" id="dashboard">
+  <div class="status"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
+  <div class="pad" style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+    <div><div style="font-size:13px;color:var(--soft);font-weight:500">Tuesday evening</div><div class="disp" style="font-size:26px;margin-top:2px">Hi Aanya</div></div>
+    <div class="avatar">M</div>
+  </div>
+  <div class="pad" style="margin-top:18px">
+    <div class="card" style="padding:22px;background:linear-gradient(160deg,#fff 30%,var(--p50));display:flex;gap:20px;align-items:center">
+      <svg width="120" height="120" viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" stroke="#FFE9DA" stroke-width="12" fill="none"/><circle cx="60" cy="60" r="50" stroke="url(#g)" stroke-width="12" fill="none" stroke-linecap="round" stroke-dasharray="314" stroke-dashoffset="57" transform="rotate(-90 60 60)"/><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#F8B48A"/><stop offset="1" stop-color="#E07A4D"/></linearGradient></defs><text x="60" y="66" text-anchor="middle" font-family="Fraunces" font-size="34" font-weight="500" fill="#2A1810">82</text><text x="60" y="84" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" fill="#7A5A4D" letter-spacing="1.5">TODAY</text></svg>
+      <div><div class="eyebrow" style="color:var(--saged)">● On track</div><div class="disp" style="font-size:21px;line-height:1.2;margin-top:8px">Mia's day is <em>looking lovely.</em></div><div style="font-size:12.5px;color:var(--soft);margin-top:6px">One small iron boost at dinner closes the gap.</div></div>
+    </div>
+  </div>
+  <div class="pad" style="margin-top:18px">
+    <div class="card" style="padding:18px 20px">
+      <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:700"><span>Today's nutrients</span><span style="color:var(--p600)">See all</span></div>
+      <div style="display:grid;gap:13px;margin-top:14px;font-size:12.5px;font-weight:600;color:var(--mid)">
+        <div><div style="display:flex;justify-content:space-between;margin-bottom:6px"><span>Protein</span><span>100%</span></div><div class="bar"><i style="width:100%;background:var(--sage)"></i></div></div>
+        <div><div style="display:flex;justify-content:space-between;margin-bottom:6px"><span>Calcium</span><span>91%</span></div><div class="bar"><i style="width:91%;background:var(--sage)"></i></div></div>
+        <div><div style="display:flex;justify-content:space-between;margin-bottom:6px"><span>Iron</span><span>64%</span></div><div class="bar"><i style="width:64%;background:linear-gradient(90deg,var(--p300),var(--p500))"></i></div></div>
+        <div><div style="display:flex;justify-content:space-between;margin-bottom:6px"><span>Fiber</span><span>78%</span></div><div class="bar"><i style="width:78%;background:linear-gradient(90deg,var(--p200),var(--p400))"></i></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="pad" style="margin-top:18px">
+    <div style="font-size:13px;font-weight:700;margin-bottom:10px">Today's meals</div>
+    <div style="display:grid;gap:10px">
+      <div class="card" style="padding:12px 14px;display:flex;align-items:center;gap:12px"><span style="width:42px;height:42px;border-radius:14px;background:var(--p100);display:flex;align-items:center;justify-content:center;font-size:22px">🥣</span><div style="flex:1"><div style="font-weight:700;font-size:14px">Breakfast</div><div style="font-size:12px;color:var(--soft)">Oats, banana, yogurt</div></div><span style="font-size:12px;font-weight:700;color:var(--saged)">✓</span></div>
+      <div class="card" style="padding:12px 14px;display:flex;align-items:center;gap:12px"><span style="width:42px;height:42px;border-radius:14px;background:var(--p100);display:flex;align-items:center;justify-content:center;font-size:22px">🍠</span><div style="flex:1"><div style="font-weight:700;font-size:14px">Lunch</div><div style="font-size:12px;color:var(--soft)">Sweet potato, chicken, peas</div></div><span style="font-size:12px;font-weight:700;color:var(--saged)">✓</span></div>
+    </div>
+  </div>
+  <div class="tabbar"><div class="tab on"><span class="d"></span>Today</div><div class="tab"><span class="d"></span>Insights</div><div class="tab"><span class="cam"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></span></div><div class="tab"><span class="d"></span>Nori</div><div class="tab"><span class="d"></span>Mia</div></div>
+  <div class="home"></div>
+</section>
+
+<!-- MEAL LOGGING -->
+<section class="screen" id="meal-logging" style="background:#2A1810">
+  <div class="status" style="color:#fff"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px;background:#fff"></i><i style="height:6px;background:#fff"></i><i style="height:8px;background:#fff"></i><i style="height:10px;background:#fff"></i></span><span class="bat" style="border-color:#fff"></span></span></div>
+  <div style="position:absolute;top:54px;left:0;right:0;height:500px;background:radial-gradient(circle at 50% 45%,#D9B79C,#8C6650 70%,#4a2f22)">
+    <div style="position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,#fff 55%,#F3E7DC 70%,#E6D4C4);box-shadow:0 20px 40px rgba(0,0,0,.3)">
+      <div style="position:absolute;left:52px;top:66px;width:96px;height:80px;border-radius:48% 52% 45% 55%;background:radial-gradient(circle at 35% 35%,#F7A35C,#E07A2E)"></div>
+      <div style="position:absolute;left:160px;top:70px;width:84px;height:70px;border-radius:40% 60% 55% 45%;background:radial-gradient(circle at 40% 30%,#F1D7A8,#D9AE6E)"></div>
+      <div style="position:absolute;left:96px;top:162px;width:110px;height:72px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#9BC27A,#5E8C3E)"></div>
+      <div style="position:absolute;left:120px;top:176px;font-size:0"></div>
+    </div>
+    <div style="position:absolute;left:46px;top:110px;border:2px solid #fff;border-radius:16px;width:118px;height:100px"></div>
+    <div style="position:absolute;left:34px;top:84px;background:#fff;border-radius:999px;padding:6px 11px;font-size:12px;font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,.2)">Sweet potato · 45g</div>
+    <div style="position:absolute;left:198px;top:128px;background:#fff;border-radius:999px;padding:6px 11px;font-size:12px;font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,.2)">Chicken · 30g</div>
+    <div style="position:absolute;left:150px;top:350px;background:#fff;border-radius:999px;padding:6px 11px;font-size:12px;font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,.2)">Peas · 25g</div>
+    <div style="position:absolute;top:18px;left:50%;transform:translateX(-50%);background:rgba(42,24,16,.55);color:#fff;padding:8px 14px;border-radius:999px;font-size:12.5px;font-weight:600;backdrop-filter:blur(8px)">✨ 3 foods found</div>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:320px;background:var(--cream);border-radius:30px 30px 0 0;padding:14px 24px 0">
+    <div style="width:40px;height:5px;border-radius:3px;background:var(--p200);margin:0 auto 16px"></div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end"><div><div class="eyebrow">Lunch · 12:34pm</div><div class="disp" style="font-size:26px;margin-top:6px">Looks <em>delicious.</em></div></div><div style="text-align:right"><div class="disp" style="font-size:26px;font-weight:500">+14</div><div style="font-size:11px;color:var(--soft);font-weight:600">to today's score</div></div></div>
+    <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap"><span class="chip sel">🍠 Sweet potato</span><span class="chip sel">🍗 Chicken</span><span class="chip sel">🟢 Peas</span><span class="chip">+ Add</span></div>
+    <div style="display:flex;gap:10px;margin-top:14px;font-size:12px;color:var(--mid);font-weight:600"><span>Ate about:</span><span style="color:var(--p700)">All</span><span style="color:var(--p700);background:var(--p100);padding:0 8px;border-radius:999px">Most</span><span>Some</span><span>A taste</span></div>
+    <div class="btn" style="margin-top:20px">Log meal</div>
+  </div>
+  <div class="home"></div>
+</section>
+
+<!-- INSIGHTS -->
+<section class="screen" id="insights">
+  <div class="status"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
+  <div class="pad" style="margin-top:12px"><div class="eyebrow">This week</div><div class="disp" style="font-size:30px;line-height:1.1;margin-top:8px">Mia is <em>doing well.</em></div></div>
+  <div class="pad" style="margin-top:18px">
+    <div class="card" style="padding:18px 18px 14px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:13px;font-weight:700">Daily score</span><span class="disp" style="font-size:22px;font-weight:500">79 <span style="font-family:'Plus Jakarta Sans';font-size:11px;color:var(--saged);font-weight:700">avg ↑ 6</span></span></div>
+      <div style="display:flex;align-items:flex-end;gap:12px;height:120px;margin-top:14px">
+        <div style="flex:1;height:62%;border-radius:10px;background:var(--p200)"></div><div style="flex:1;height:74%;border-radius:10px;background:var(--p200)"></div><div style="flex:1;height:58%;border-radius:10px;background:var(--p200)"></div><div style="flex:1;height:80%;border-radius:10px;background:var(--p300)"></div><div style="flex:1;height:86%;border-radius:10px;background:var(--p300)"></div><div style="flex:1;height:76%;border-radius:10px;background:var(--p300)"></div><div style="flex:1;height:82%;border-radius:10px;background:linear-gradient(180deg,var(--p400),var(--p600))"></div>
+      </div>
+      <div style="display:flex;gap:12px;margin-top:8px;font-size:10.5px;font-weight:600;color:var(--soft);text-align:center"><span style="flex:1">W</span><span style="flex:1">T</span><span style="flex:1">F</span><span style="flex:1">S</span><span style="flex:1">S</span><span style="flex:1">M</span><span style="flex:1;color:var(--p700)">T</span></div>
+    </div>
+  </div>
+  <div class="pad" style="margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+    <div class="card" style="padding:16px"><div style="font-size:20px">💪</div><div style="font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--saged);margin-top:8px">STRONG</div><div style="font-size:13.5px;font-weight:600;margin-top:4px;line-height:1.35">Protein & calcium all week</div></div>
+    <div class="card" style="padding:16px;background:var(--p50)"><div style="font-size:20px">🌱</div><div style="font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--p700);margin-top:8px">GENTLE NUDGE</div><div style="font-size:13.5px;font-weight:600;margin-top:4px;line-height:1.35">Iron a little low — try lentils</div></div>
+  </div>
+  <div class="pad" style="margin-top:14px">
+    <div class="card" style="padding:18px 20px">
+      <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:700"><span>Growth · WHO curve</span><span style="color:var(--saged)">Healthy</span></div>
+      <svg width="310" height="96" viewBox="0 0 310 96" style="margin-top:10px"><path d="M0 80 C80 66 160 44 310 18" stroke="#FFE9DA" stroke-width="22" fill="none" stroke-linecap="round"/><path d="M0 82 C80 68 160 46 310 22" stroke="#FCD2B6" stroke-width="1.5" stroke-dasharray="4 4" fill="none"/><path d="M0 84 C70 72 150 52 250 36" stroke="#E07A4D" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="250" cy="36" r="6" fill="#fff" stroke="#E07A4D" stroke-width="3"/></svg>
+      <div style="font-size:12.5px;color:var(--soft);line-height:1.5;margin-top:6px">38th percentile — right on her own curve. Steady is exactly what we want to see.</div>
+    </div>
+  </div>
+  <div class="tabbar"><div class="tab"><span class="d"></span>Today</div><div class="tab on"><span class="d"></span>Insights</div><div class="tab"><span class="cam"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></span></div><div class="tab"><span class="d"></span>Nori</div><div class="tab"><span class="d"></span>Mia</div></div>
+  <div class="home"></div>
+</section>
+
+<!-- COACH -->
+<section class="screen" id="coach" style="background:linear-gradient(180deg,#FFF6F0,#FBF4EB)">
+  <div class="status"><span>2:14</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
+  <div class="pad" style="display:flex;align-items:center;gap:12px;margin-top:10px;padding-bottom:14px;border-bottom:1px solid rgba(224,122,77,.12)">
+    <div style="width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FFE9DA,#F19568 60%,#C45F36);display:flex;align-items:center;justify-content:center;font-size:20px">🌸</div>
+    <div><div class="disp" style="font-size:20px">Nori</div><div style="font-size:11.5px;color:var(--saged);font-weight:600">● Knows Mia · 14 months · no known allergies</div></div>
+  </div>
+  <div class="pad" style="display:flex;flex-direction:column;gap:12px;margin-top:18px;font-size:14px;line-height:1.5">
+    <div style="align-self:flex-end;max-width:78%;background:linear-gradient(180deg,var(--p500),var(--p600));color:#fff;padding:12px 15px;border-radius:20px 20px 6px 20px">She refused dinner again and now she's up. Should I be worried?</div>
+    <div class="card" style="align-self:flex-start;max-width:84%;padding:13px 15px;border-radius:20px 20px 20px 6px;color:var(--mid)">That's such a tiring night — and so common at 14 months. Looking at her week, she's had plenty of protein and calcium, so one skipped dinner isn't a worry.</div>
+    <div class="card" style="align-self:flex-start;max-width:84%;padding:13px 15px;border-radius:20px 20px 20px 6px;color:var(--mid)">If she's hungry now, a small banana or a little whole-milk yogurt is a calm option. Tomorrow, try offering dinner a touch earlier.</div>
+    <div style="align-self:flex-start;max-width:84%;font-size:12px;color:var(--soft);background:var(--p100);padding:9px 13px;border-radius:14px">🩺 If refusals last more than a week, it's worth a chat with your pediatrician.</div>
+  </div>
+  <div class="pad" style="position:absolute;bottom:40px;left:0;right:0">
+    <div style="display:flex;gap:8px;margin-bottom:12px;overflow:hidden"><span class="chip" style="font-size:12.5px;padding:8px 12px">Easy iron dinners</span><span class="chip" style="font-size:12.5px;padding:8px 12px">Is she drinking enough?</span></div>
+    <div class="card" style="height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 8px 0 18px;font-size:14px;color:var(--soft)">Ask Nori anything…<span style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--p400),var(--p600));display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+  </div>
+  <div class="home"></div>
+</section>
+<script>document.getElementById(new URLSearchParams(location.search).get('s')||'dashboard').classList.add('on')</script>
+</body></html>

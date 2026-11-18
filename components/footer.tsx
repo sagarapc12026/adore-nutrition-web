@@ -30,6 +30,7 @@ const columns = [
       { href: '/privacy', label: 'Privacy policy' },
       { href: '/terms', label: 'Terms of service' },
       { href: `mailto:${site.email}?subject=Press%20kit`, label: 'Press kit' },
+      { href: '/credits', label: 'Photo credits' },
     ],
   },
 ];

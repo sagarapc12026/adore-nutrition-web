@@ -38,7 +38,7 @@ export function Features() {
             ]}
             image={{
               src: '/screens/meal-logging.webp',
-              alt: 'Meal logging screen: a photo of a lunch bowl with tofu, egg and corn recognised and ready to log',
+              alt: 'Meal logging screen: a divided toddler plate with grilled cheese, broccoli, strawberries and blueberries recognised and ready to log',
             }}
           />
           <FeatureRow

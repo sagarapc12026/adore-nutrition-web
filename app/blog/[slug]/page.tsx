@@ -103,14 +103,15 @@ export default async function ArticlePage({ params }: Params) {
 
           {article.image && (
             <figure className="mx-auto mb-14 max-w-[880px] px-5 sm:px-8">
-              <div className="relative aspect-[16/9] overflow-hidden rounded-xl bg-peach-100 shadow-warm">
+              <div className={`relative aspect-[16/9] overflow-hidden rounded-xl shadow-warm ${tints[article.tint]}`}>
                 <Image
                   src={article.image}
                   alt={article.imageAlt ?? ''}
                   fill
                   priority
                   sizes="(min-width: 960px) 880px, 100vw"
-                  className="object-cover"
+                  style={article.imagePosition ? { objectPosition: article.imagePosition } : undefined}
+                  className={`object-cover ${article.imageOnWhite ? 'mix-blend-multiply' : ''}`}
                 />
               </div>
             </figure>

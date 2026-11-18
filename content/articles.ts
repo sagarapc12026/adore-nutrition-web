@@ -26,6 +26,10 @@ export type ArticleMeta = {
   /** Cover photo in /public/journal (falls back to the emoji on a tint when absent) */
   image?: string;
   imageAlt?: string;
+  /** CSS object-position for the cover crop, e.g. 'bottom' to keep a creator's notice in frame */
+  imagePosition?: string;
+  /** Photo shot on pure white: blend it onto the card's warm tint instead of showing a white box */
+  imageOnWhite?: boolean;
   /** Cover tint: 'peach' | 'blush' | 'sage' | 'cream' */
   tint: 'peach' | 'blush' | 'sage' | 'cream';
   date: string; // ISO
@@ -44,7 +48,8 @@ export const articles: ArticleMeta[] = [
     readingTime: '6 min read',
     emoji: '🥬',
     image: '/journal/the-truth-about-iron.webp',
-    imageAlt: 'A fresh bunch of dark green spinach leaves',
+    imageOnWhite: true,
+    imageAlt: 'Small, toddler-sized broccoli florets',
     tint: 'peach',
     date: '2026-11-02',
     author: 'The Adore team',
@@ -60,7 +65,7 @@ export const articles: ArticleMeta[] = [
     readingTime: '4 min read',
     emoji: '🥄',
     image: '/journal/why-toddlers-stop-eating.webp',
-    imageAlt: 'A coconut bowl filled with strawberries, kiwi and blueberries',
+    imageAlt: 'A teddy-bear-shaped pancake with a fruit face, served for a toddler',
     tint: 'blush',
     date: '2026-11-09',
     author: 'The Adore team',
@@ -74,7 +79,8 @@ export const articles: ArticleMeta[] = [
     readingTime: '3 min read',
     emoji: '🍑',
     image: '/journal/why-we-built-adore.webp',
-    imageAlt: 'A colourful spread of papaya, oranges, grapes and other fruit',
+    imageOnWhite: true,
+    imageAlt: 'A small bowl of sliced strawberries, cut for little hands',
     tint: 'cream',
     date: '2026-11-16',
     author: 'The Adore team',
@@ -88,7 +94,8 @@ export const articles: ArticleMeta[] = [
     readingTime: '5 min read',
     emoji: '📏',
     image: '/journal/percentiles-explained-gently.webp',
-    imageAlt: 'A glass jar layered with grains, beans and vegetables',
+    imageOnWhite: true,
+    imageAlt: 'A toddler-sized bowl of blueberries',
     tint: 'sage',
     date: '2026-11-23',
     author: 'The Adore team',
@@ -102,7 +109,7 @@ export const articles: ArticleMeta[] = [
     readingTime: '6 min read',
     emoji: '🥜',
     image: '/journal/introducing-allergens-calmly.webp',
-    imageAlt: 'Toast topped with sliced boiled egg and greens',
+    imageAlt: 'Homemade carrot purée portioned in an ice-cube tray',
     tint: 'blush',
     date: '2026-11-30',
     author: 'The Adore team',
@@ -116,7 +123,9 @@ export const articles: ArticleMeta[] = [
     readingTime: '4 min read',
     emoji: '🍲',
     image: '/journal/iron-rich-lunches-toddlers-eat.webp',
-    imageAlt: 'A bowl of lentils and grains with roasted vegetables',
+    imagePosition: 'bottom',
+    imageAlt:
+      'A divided toddler lunch plate with cheese, salami, crackers, cucumber, carrots and watermelon puzzle pieces',
     tint: 'peach',
     date: '2026-12-07',
     author: 'The Adore team',

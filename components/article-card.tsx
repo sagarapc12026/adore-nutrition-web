@@ -10,7 +10,7 @@ export const tints: Record<ArticleMeta['tint'], string> = {
 };
 
 type CoverProps = {
-  article: Pick<ArticleMeta, 'emoji' | 'tint' | 'image' | 'imageAlt'>;
+  article: Pick<ArticleMeta, 'emoji' | 'tint' | 'image' | 'imageAlt' | 'imagePosition' | 'imageOnWhite'>;
   sizes: string;
   emojiClass?: string;
   /** Card covers sit next to the linked title, so they're decorative by default. */
@@ -34,7 +34,8 @@ export function ArticleCover({
         fill
         sizes={sizes}
         priority={priority}
-        className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+        style={article.imagePosition ? { objectPosition: article.imagePosition } : undefined}
+        className={`object-cover transition-transform ${article.imageOnWhite ? 'mix-blend-multiply' : ''} duration-700 ease-out group-hover:scale-[1.03]`}
       />
     );
   }
@@ -49,7 +50,19 @@ export function ArticleCover({
 }
 
 type Props = {
-  article: Pick<ArticleMeta, 'slug' | 'title' | 'kicker' | 'readingTime' | 'emoji' | 'tint' | 'image' | 'imageAlt'> & {
+  article: Pick<
+    ArticleMeta,
+    | 'slug'
+    | 'title'
+    | 'kicker'
+    | 'readingTime'
+    | 'emoji'
+    | 'tint'
+    | 'image'
+    | 'imageAlt'
+    | 'imagePosition'
+    | 'imageOnWhite'
+  > & {
     published?: boolean;
   };
   headingLevel?: 'h2' | 'h3';

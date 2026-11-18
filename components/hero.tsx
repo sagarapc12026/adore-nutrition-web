@@ -50,7 +50,7 @@ export function Hero() {
             <div className="absolute left-[31%] top-[29%] z-[2] w-[36%] -rotate-[2deg]">
               <PhoneFrame
                 src="/screens/meal-logging.webp"
-                alt="Logging a lunch by photo: tofu, egg and corn recognised in the bowl"
+                alt="Logging a toddler lunch by photo: grilled cheese, broccoli, strawberries and blueberries recognised on a divided plate"
                 sizes="(min-width: 1024px) 200px, 36vw"
               />
             </div>

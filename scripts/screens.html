@@ -77,8 +77,8 @@ em{font-family:'Fraunces',serif;font-style:italic;color:var(--p600)}
   <div class="pad" style="margin-top:18px">
     <div style="font-size:13px;font-weight:700;margin-bottom:10px">Today's meals</div>
     <div style="display:grid;gap:10px">
-      <div class="card" style="padding:12px 14px;display:flex;align-items:center;gap:12px"><span style="width:42px;height:42px;border-radius:14px;background:var(--p100);display:flex;align-items:center;justify-content:center;font-size:22px">🥣</span><div style="flex:1"><div style="font-weight:700;font-size:14px">Breakfast</div><div style="font-size:12px;color:var(--soft)">Oats, banana, yogurt</div></div><span style="font-size:12px;font-weight:700;color:var(--saged)">✓</span></div>
-      <div class="card" style="padding:12px 14px;display:flex;align-items:center;gap:12px"><span style="width:42px;height:42px;border-radius:14px;background:var(--p100);display:flex;align-items:center;justify-content:center;font-size:22px">🍠</span><div style="flex:1"><div style="font-weight:700;font-size:14px">Lunch</div><div style="font-size:12px;color:var(--soft)">Sweet potato, chicken, peas</div></div><span style="font-size:12px;font-weight:700;color:var(--saged)">✓</span></div>
+      <div class="card" style="padding:12px 14px;display:flex;align-items:center;gap:12px"><img src="assets/breakfast.jpg" alt="" style="width:42px;height:42px;border-radius:14px;object-fit:cover;display:block"><div style="flex:1"><div style="font-weight:700;font-size:14px">Breakfast</div><div style="font-size:12px;color:var(--soft)">Fruit, oats, yogurt</div></div><span style="font-size:12px;font-weight:700;color:var(--saged)">✓</span></div>
+      <div class="card" style="padding:12px 14px;display:flex;align-items:center;gap:12px"><img src="assets/lunch.jpg" alt="" style="width:42px;height:42px;border-radius:14px;object-fit:cover;display:block"><div style="flex:1"><div style="font-weight:700;font-size:14px">Lunch</div><div style="font-size:12px;color:var(--soft)">Tofu, egg, corn</div></div><span style="font-size:12px;font-weight:700;color:var(--saged)">✓</span></div>
     </div>
   </div>
   <div class="tabbar"><div class="tab on"><span class="d"></span>Today</div><div class="tab"><span class="d"></span>Insights</div><div class="tab"><span class="cam"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></span></div><div class="tab"><span class="d"></span>Nori</div><div class="tab"><span class="d"></span>Mia</div></div>
@@ -88,23 +88,19 @@ em{font-family:'Fraunces',serif;font-style:italic;color:var(--p600)}
 <!-- MEAL LOGGING -->
 <section class="screen" id="meal-logging" style="background:#2A1810">
   <div class="status" style="color:#fff"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px;background:#fff"></i><i style="height:6px;background:#fff"></i><i style="height:8px;background:#fff"></i><i style="height:10px;background:#fff"></i></span><span class="bat" style="border-color:#fff"></span></span></div>
-  <div style="position:absolute;top:54px;left:0;right:0;height:500px;background:radial-gradient(circle at 50% 45%,#D9B79C,#8C6650 70%,#4a2f22)">
-    <div style="position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,#fff 55%,#F3E7DC 70%,#E6D4C4);box-shadow:0 20px 40px rgba(0,0,0,.3)">
-      <div style="position:absolute;left:52px;top:66px;width:96px;height:80px;border-radius:48% 52% 45% 55%;background:radial-gradient(circle at 35% 35%,#F7A35C,#E07A2E)"></div>
-      <div style="position:absolute;left:160px;top:70px;width:84px;height:70px;border-radius:40% 60% 55% 45%;background:radial-gradient(circle at 40% 30%,#F1D7A8,#D9AE6E)"></div>
-      <div style="position:absolute;left:96px;top:162px;width:110px;height:72px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#9BC27A,#5E8C3E)"></div>
-      <div style="position:absolute;left:120px;top:176px;font-size:0"></div>
-    </div>
-    <div style="position:absolute;left:46px;top:110px;border:2px solid #fff;border-radius:16px;width:118px;height:100px"></div>
-    <div style="position:absolute;left:34px;top:84px;background:#fff;border-radius:999px;padding:6px 11px;font-size:12px;font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,.2)">Sweet potato · 45g</div>
-    <div style="position:absolute;left:198px;top:128px;background:#fff;border-radius:999px;padding:6px 11px;font-size:12px;font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,.2)">Chicken · 30g</div>
-    <div style="position:absolute;left:150px;top:350px;background:#fff;border-radius:999px;padding:6px 11px;font-size:12px;font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,.2)">Peas · 25g</div>
+  <div style="position:absolute;top:54px;left:0;right:0;height:500px;overflow:hidden;background:#e9e9e9">
+    <img src="assets/plate.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,24,16,.25),transparent 25%,transparent 75%,rgba(42,24,16,.25))"></div>
+    <div style="position:absolute;left:150px;top:168px;border:2px solid #fff;border-radius:16px;width:120px;height:110px;box-shadow:0 0 0 999px rgba(42,24,16,.08)"></div>
+    <div style="position:absolute;background:#fff;border-radius:999px;padding:6px 11px;font-size:12px;font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,.2);left:150px;top:286px">Tofu · 40g</div>
+    <div style="position:absolute;background:#fff;border-radius:999px;padding:6px 11px;font-size:12px;font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,.2);left:40px;top:108px">Egg · 20g</div>
+    <div style="position:absolute;background:#fff;border-radius:999px;padding:6px 11px;font-size:12px;font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,.2);left:270px;top:176px">Corn · 25g</div>
     <div style="position:absolute;top:18px;left:50%;transform:translateX(-50%);background:rgba(42,24,16,.55);color:#fff;padding:8px 14px;border-radius:999px;font-size:12.5px;font-weight:600;backdrop-filter:blur(8px)">✨ 3 foods found</div>
   </div>
   <div style="position:absolute;left:0;right:0;bottom:0;height:320px;background:var(--cream);border-radius:30px 30px 0 0;padding:14px 24px 0">
     <div style="width:40px;height:5px;border-radius:3px;background:var(--p200);margin:0 auto 16px"></div>
     <div style="display:flex;justify-content:space-between;align-items:flex-end"><div><div class="eyebrow">Lunch · 12:34pm</div><div class="disp" style="font-size:26px;margin-top:6px">Looks <em>delicious.</em></div></div><div style="text-align:right"><div class="disp" style="font-size:26px;font-weight:500">+14</div><div style="font-size:11px;color:var(--soft);font-weight:600">to today's score</div></div></div>
-    <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap"><span class="chip sel">🍠 Sweet potato</span><span class="chip sel">🍗 Chicken</span><span class="chip sel">🟢 Peas</span><span class="chip">+ Add</span></div>
+    <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap"><span class="chip sel">🥢 Tofu</span><span class="chip sel">🥚 Egg</span><span class="chip sel">🌽 Corn</span><span class="chip">+ Add</span></div>
     <div style="display:flex;gap:10px;margin-top:14px;font-size:12px;color:var(--mid);font-weight:600"><span>Ate about:</span><span style="color:var(--p700)">All</span><span style="color:var(--p700);background:var(--p100);padding:0 8px;border-radius:999px">Most</span><span>Some</span><span>A taste</span></div>
     <div class="btn" style="margin-top:20px">Log meal</div>
   </div>

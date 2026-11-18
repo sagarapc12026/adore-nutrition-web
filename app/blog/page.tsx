@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Nav } from '@/components/nav';
 import { Footer } from '@/components/footer';
 import { PillBadge } from '@/components/ui/pill-badge';
-import { ArticleCard, tints } from '@/components/article-card';
+import { ArticleCard, ArticleCover, tints } from '@/components/article-card';
 import { WaitlistForm } from '@/components/waitlist-form';
 import { categories } from '@/content/articles';
 import { getAllArticles, getFeaturedArticle } from '@/lib/articles';
@@ -76,13 +76,15 @@ export default function JournalPage() {
         {featured && (
           <section aria-label="Featured story" className="mx-auto max-w-6xl px-5 sm:px-8">
             <article className="group relative grid overflow-hidden rounded-xl bg-white shadow-warm ring-1 ring-peach-100 transition-shadow duration-300 hover:shadow-lift md:grid-cols-2">
-              <div className={`flex min-h-[260px] items-center justify-center ${tints[featured.tint]}`}>
-                <span
-                  aria-hidden="true"
-                  className="text-[110px] drop-shadow-[0_12px_24px_rgba(154,72,37,0.2)] transition-transform duration-500 group-hover:scale-105"
-                >
-                  {featured.emoji}
-                </span>
+              <div
+                className={`relative flex min-h-[280px] items-center justify-center overflow-hidden ${tints[featured.tint]}`}
+              >
+                <ArticleCover
+                  article={featured}
+                  sizes="(min-width: 768px) 560px, 100vw"
+                  emojiClass="text-[110px]"
+                  priority
+                />
               </div>
               <div className="flex flex-col justify-center p-8 sm:p-12">
                 <p className="eyebrow">Featured · {featured.kicker}</p>

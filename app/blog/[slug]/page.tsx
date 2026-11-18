@@ -3,7 +3,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Nav } from '@/components/nav';
 import { Footer } from '@/components/footer';
-import { tints } from '@/components/article-card';
+import Image from 'next/image';
+import { ArticleCover, tints } from '@/components/article-card';
 import { WaitlistForm } from '@/components/waitlist-form';
 import { getAllArticles, getArticle } from '@/lib/articles';
 import { site } from '@/lib/site';
@@ -44,7 +45,7 @@ export default async function ArticlePage({ params }: Params) {
   const article = getArticle(params.slug);
   if (!article) notFound();
 
-  if (!article.published) return <ComingSoon title={article.title} emoji={article.emoji} tint={article.tint} />;
+  if (!article.published) return <ComingSoon article={article} />;
 
   const { default: Body } = (await import(`@/content/blog/${article.slug}.mdx`)) as { default: React.ComponentType };
 
@@ -100,6 +101,21 @@ export default async function ArticlePage({ params }: Params) {
             </div>
           </header>
 
+          {article.image && (
+            <figure className="mx-auto mb-14 max-w-[880px] px-5 sm:px-8">
+              <div className="relative aspect-[16/9] overflow-hidden rounded-xl bg-peach-100 shadow-warm">
+                <Image
+                  src={article.image}
+                  alt={article.imageAlt ?? ''}
+                  fill
+                  priority
+                  sizes="(min-width: 960px) 880px, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            </figure>
+          )}
+
           <div className="prose-article mx-auto max-w-[720px] px-5 pb-24 sm:px-8">
             <Body />
           </div>
@@ -110,15 +126,16 @@ export default async function ArticlePage({ params }: Params) {
   );
 }
 
-function ComingSoon({ title, emoji, tint }: { title: string; emoji: string; tint: keyof typeof tints }) {
+function ComingSoon({ article }: { article: Parameters<typeof ArticleCover>[0]['article'] & { title: string } }) {
+  const { title, tint } = article;
   return (
     <>
       <Nav />
       <main id="main" className="mx-auto max-w-[720px] px-5 py-24 text-center sm:px-8 sm:py-32">
-        <div className={`mx-auto flex h-28 w-28 items-center justify-center rounded-full ${tints[tint]} shadow-warm`}>
-          <span aria-hidden="true" className="text-[52px]">
-            {emoji}
-          </span>
+        <div
+          className={`relative mx-auto flex h-32 w-32 items-center justify-center overflow-hidden rounded-full ring-4 ring-white ${tints[tint]} shadow-warm`}
+        >
+          <ArticleCover article={article} sizes="128px" emojiClass="text-[52px]" />
         </div>
         <p className="eyebrow mt-10">Coming soon</p>
         <h1 className="mt-4 text-balance font-display text-[clamp(2rem,1.5rem+2vw,3rem)] font-normal leading-[1.08] tracking-tight text-ink">

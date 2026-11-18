@@ -23,6 +23,9 @@ export type ArticleMeta = {
   category: Exclude<CategorySlug, 'all'>;
   readingTime: string;
   emoji: string;
+  /** Cover photo in /public/journal (falls back to the emoji on a tint when absent) */
+  image?: string;
+  imageAlt?: string;
   /** Cover tint: 'peach' | 'blush' | 'sage' | 'cream' */
   tint: 'peach' | 'blush' | 'sage' | 'cream';
   date: string; // ISO
@@ -40,6 +43,8 @@ export const articles: ArticleMeta[] = [
     category: 'nutrition-basics',
     readingTime: '6 min read',
     emoji: '🥬',
+    image: '/journal/the-truth-about-iron.webp',
+    imageAlt: 'A fresh bunch of dark green spinach leaves',
     tint: 'peach',
     date: '2026-11-02',
     author: 'The Adore team',
@@ -54,6 +59,8 @@ export const articles: ArticleMeta[] = [
     category: 'picky-eaters',
     readingTime: '4 min read',
     emoji: '🥄',
+    image: '/journal/why-toddlers-stop-eating.webp',
+    imageAlt: 'A coconut bowl filled with strawberries, kiwi and blueberries',
     tint: 'blush',
     date: '2026-11-09',
     author: 'The Adore team',
@@ -66,6 +73,8 @@ export const articles: ArticleMeta[] = [
     category: 'from-the-founder',
     readingTime: '3 min read',
     emoji: '🍑',
+    image: '/journal/why-we-built-adore.webp',
+    imageAlt: 'A colourful spread of papaya, oranges, grapes and other fruit',
     tint: 'cream',
     date: '2026-11-16',
     author: 'The Adore team',
@@ -78,6 +87,8 @@ export const articles: ArticleMeta[] = [
     category: 'growth-milestones',
     readingTime: '5 min read',
     emoji: '📏',
+    image: '/journal/percentiles-explained-gently.webp',
+    imageAlt: 'A glass jar layered with grains, beans and vegetables',
     tint: 'sage',
     date: '2026-11-23',
     author: 'The Adore team',
@@ -90,6 +101,8 @@ export const articles: ArticleMeta[] = [
     category: 'allergies',
     readingTime: '6 min read',
     emoji: '🥜',
+    image: '/journal/introducing-allergens-calmly.webp',
+    imageAlt: 'Toast topped with sliced boiled egg and greens',
     tint: 'blush',
     date: '2026-11-30',
     author: 'The Adore team',
@@ -102,6 +115,8 @@ export const articles: ArticleMeta[] = [
     category: 'nutrition-basics',
     readingTime: '4 min read',
     emoji: '🍲',
+    image: '/journal/iron-rich-lunches-toddlers-eat.webp',
+    imageAlt: 'A bowl of lentils and grains with roasted vegetables',
     tint: 'peach',
     date: '2026-12-07',
     author: 'The Adore team',

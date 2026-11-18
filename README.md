@@ -130,6 +130,8 @@ kicker: Nutrition
 category: nutrition-basics   # nutrition-basics | picky-eaters | growth-milestones | allergies | from-the-founder
 readingTime: 4 min read
 emoji: 🍲
+image: /journal/iron-rich-lunches-toddlers-eat.webp   # optional cover photo in public/journal/
+imageAlt: A bowl of lentils and grains with roasted vegetables
 tint: peach                  # peach | blush | sage | cream
 date: 2026-12-07
 author: The Adore team
@@ -157,7 +159,8 @@ That's it — `/blog/<slug>` is generated at build, and the article appears on `
 - **Fonts:** `lib/fonts.ts` (Fraunces variable with the `opsz` axis + Plus Jakarta Sans via `next/font`). They're exposed as `--font-fraunces` / `--font-jakarta` and mapped to `font-display` / `font-sans`.
 - **Global type styles:** `app/globals.css` — `.display-xl/lg/md`, `.eyebrow`, `.accent` (italic accent word), and `.prose-article` (Journal body, drop cap).
 - **Italic accent colour:** one variable, `--accent`, in `app/globals.css`.
-- **App screens:** `public/screens/*.webp`. The current files are designed placeholders generated from `scripts/screens.html`. Replace them with real screenshots using the **same filenames** (portrait, ~600×1298). To regenerate the placeholders: `NODE_PATH=$(npm root -g) pnpm screens` (needs Playwright).
+- **Journal cover photos:** `public/journal/<slug>.webp`, referenced by `image` / `imageAlt` in `content/articles.ts` or an article's frontmatter. Leave `image` out and the card falls back to the emoji on a tint. Current photos are from Unsplash (see `CREDITS.md`); `pnpm photos` re-downloads them.
+- **App screens:** `public/screens/*.webp`. The current files are designed placeholders (with real food photos in the meal-logging and dashboard screens) generated from `scripts/screens.html`. Replace them with real screenshots using the **same filenames** (portrait, ~600×1298). To regenerate the placeholders: `NODE_PATH=$(npm root -g) pnpm screens` (needs Playwright).
 - **OG image:** `app/opengraph-image.tsx` (fonts in `lib/og-fonts/`).
 
 ### Accessibility adjustments to the brand palette
